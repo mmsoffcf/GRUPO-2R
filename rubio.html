@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description"
+    content="Proyectos Rubio: Especialistas en pintura profesional, rotulación y acabados de alta calidad en la Comarca Lagunera.">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <title>Proyectos Rubio - Pintura y Rotulación Profesional | Grupo 2R</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-rubio theme-light">
+
+  <nav role="navigation" aria-label="Navegación principal">
+    <a href="#" style="text-decoration: none;">
+      <div class="logo-container">
+        <img src="assets/Logo_RubioProyectos_B.png" alt="Proyectos Rubio Logo" class="logo-img">
+        <span class="logo-text"> </span>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="main-nav">
+      <a href="index.html">Grupo 2R</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <header role="banner">
+    <div class="fade-up delay-1">
+      <img src="assets/Logo_RubioProyectos_B.png" alt="Proyectos Rubio Logo"
+        style="max-width: 560px; width: 100%; margin-bottom: 5px;" onerror="this.style.display='none'">
+      <!-- Removing the H2 text duplication if looking strictly like index which has both, but user prompt "que encse vea el logo ... y que abajo diga pintura y rotulación" suggests specific text below logo. -->
+      <!-- I will match index structure which has logo + h2 + p. -->
+      <p style="font-size: 1.8rem; font-weight: 300;">Pintura y Rotulación</p>
+    </div>
+  </header>
+
+  <section id="galeria">
+    <!-- Proyecto 1: Proyectos Industriales -->
+    <div class="split">
+      <div class="slide-left">
+        <h3>Proyectos Industriales</h3>
+        <p>Especialistas en pintura industrial y rotulación de gran formato para naves, bodegas y espacios comerciales.
+          Trabajamos con materiales de alta durabilidad que resisten las condiciones más exigentes.</p>
+      </div>
+      <img src="assets/rubio2.JPG" alt="Proyecto industrial Rubio" class="slide-right"
+        onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200'">
+    </div>
+
+    <!-- Proyecto 2: Rotulación y Espacios Comerciales (Gallery) -->
+    <div class="split">
+      <div class="gallery-container slide-left" data-images='["assets/rubio4.jpeg", "assets/rubio5.JPG"]'>
+        <img src="assets/rubio4.jpeg" alt="Rotulación y espacios comerciales" class="gallery-image"
+          onerror="this.src='https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=1200'">
+        <button class="gallery-nav gallery-prev" onclick="changeImage(this, -1)" aria-label="Imagen anterior">‹</button>
+        <button class="gallery-nav gallery-next" onclick="changeImage(this, 1)" aria-label="Siguiente imagen">›</button>
+        <div class="gallery-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div class="slide-right">
+        <h3>Rotulación y Espacios Comerciales</h3>
+        <p>Creamos identidad visual para tu negocio con rotulación profesional, letras corpóreas y señalética que
+          destaca tu marca. Renovamos locales comerciales, oficinas y espacios corporativos con pintura de alta calidad
+          y acabados
+          profesionales que impresionan.</p>
+      </div>
+    </div>
+
+    <!-- Proyecto 3: Servicios Especializados (Gallery) -->
+    <div class="split">
+      <div class="slide-left">
+        <h3>Servicios Especializados</h3>
+        <p>Especialistas en señalización vial, demarcación de estacionamientos e impermeabilización profesional.
+          Protegemos tus espacios con sistemas duraderos contra filtraciones y humedad. Renovación completa de fachadas
+          comerciales
+          que atraen clientes y renuevan la imagen de tu negocio.</p>
+      </div>
+      <div class="gallery-container slide-right"
+        data-images='["assets/rubio6.JPEG", "assets/rubio7.JPEG", "assets/rubio8.jpeg"]'>
+        <img src="assets/rubio6.JPEG" alt="Servicios especializados" class="gallery-image"
+          onerror="this.src='https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?q=80&w=1200'">
+        <button class="gallery-nav gallery-prev" onclick="changeImage(this, -1)" aria-label="Imagen anterior">‹</button>
+        <button class="gallery-nav gallery-next" onclick="changeImage(this, 1)" aria-label="Siguiente imagen">›</button>
+        <div class="gallery-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 4: Acabados y Estructuras (Gallery) -->
+    <div class="split">
+      <div class="gallery-container slide-left"
+        data-images='["assets/rubio9.JPG", "assets/rubio10.JPG", "assets/rubio11.JPG"]'>
+        <img src="assets/rubio9.JPG" alt="Acabados y estructuras" class="gallery-image"
+          onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200'">
+        <button class="gallery-nav gallery-prev" onclick="changeImage(this, -1)" aria-label="Imagen anterior">‹</button>
+        <button class="gallery-nav gallery-next" onclick="changeImage(this, 1)" aria-label="Siguiente imagen">›</button>
+        <div class="gallery-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div class="slide-right">
+        <h3>Acabados y Estructuras</h3>
+        <p>Pintura anticorrosiva y protección de estructuras metálicas con sistemas especializados.
+          Aplicación de recubrimientos epóxicos y poliuretano para pisos industriales resistentes al tráfico pesado.
+          Renovación de fachadas comerciales con acabados de alta calidad.</p>
+      </div>
+    </div>
+
+    <!-- Proyecto 5: Proyectos Premium (Gallery) -->
+    <div class="split">
+      <div class="slide-left">
+        <h3>Proyectos de alta calidad</h3>
+        <p>Desarrollamos proyectos personalizados adaptados a las necesidades específicas de cada cliente.
+          Técnicas especializadas y productos de alta gama para acabados premium que superan expectativas.</p>
+      </div>
+      <div class="gallery-container slide-right" data-images='["assets/rubio13.JPG", "assets/rubio14.JPG"]'>
+        <img src="assets/rubio13.JPG" alt="Proyectos premium" class="gallery-image"
+          onerror="this.src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200'">
+        <button class="gallery-nav gallery-prev" onclick="changeImage(this, -1)" aria-label="Imagen anterior">‹</button>
+        <button class="gallery-nav gallery-next" onclick="changeImage(this, 1)" aria-label="Siguiente imagen">›</button>
+        <div class="gallery-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 6: Acabados Premium -->
+    <div class="split">
+      <img src="assets/rubio15.JPG" alt="Acabados de lujo" class="split slide-left"
+        onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200'">
+      <div class="slide-right">
+        <h3>Acabados Premium</h3>
+        <p>Técnicas especializadas y productos de alta gama para acabados premium que superan expectativas.</p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="cta" id="contacto" style="padding: 120px 40px; text-align: center;">
+    <div class="fade-up"
+      style="background: #5b1d24; color: white; padding: 100px 60px; border-radius: 24px; max-width: 1200px; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+      <h2 style="color: white; font-size: 3.5rem; margin-bottom: 30px; font-weight: 700;">Transforma tu espacio</h2>
+      <p style="color: white; font-size: 1.5rem; margin-bottom: 20px; opacity: 0.95;">Llámanos o escríbenos para una
+        cotización sin compromiso</p>
+      <p style="color: white; font-size: 1.8rem; margin-bottom: 50px; font-weight: 600;">+52 871 136 5847</p>
+      <a href="https://wa.me/528711365847" target="_blank"
+        style="background: white; color: #5b1d24; padding: 25px 70px; border-radius: 50px; font-size: 1.3rem; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 15px 40px rgba(0,0,0,0.4); transition: all 0.3s ease; border: 4px solid white;"
+        onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 50px rgba(0,0,0,0.5)';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.4)';">
+        Envíanos un mensaje por Whatsapp
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Proyectos Rubio © 2026</p>
+    <p>Parte de Grupo 2R - Calidad y profesionalismo garantizado</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+
+  /* Extra small Colaboradores title */
+  .colaboradores-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+}

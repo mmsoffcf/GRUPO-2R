@@ -1,0 +1,757 @@
+/* 
+   style.css - Grupo 2R Unified Stylesheet
+   Supports Dark Theme (Default) and Light Theme (Rubio)
+*/
+
+:root {
+  /* Colors */
+  --bg-color: #0b0f1a;
+  --text-color: #fff;
+  --nav-bg: rgba(0, 0, 0, 0.75);
+  --nav-text: #fff;
+
+  --accent-prime: #30b9c7;
+  /* Updated Prime Blue */
+  --accent-prime-dark: #2599a5;
+  --accent-rubio: #5b1d24;
+  /* Updated Dark Red */
+  --accent-highlight: #dc2626;
+  /* Bright Red for text */
+
+  --card-bg: rgba(255, 255, 255, 0.05);
+  /* Glass effect default */
+  --card-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Light Theme Override (For Rubio) */
+body.theme-light {
+  --bg-color: #fff;
+  --text-color: #111;
+  --nav-bg: rgba(0, 0, 0, 0.7);
+  /* Keep nav dark for contrast with white logo text? Or adjust? Original Rubio had dark nav */
+
+  --card-bg: #fff;
+  --card-border: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* --- Navigation --- */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  transition: padding 0.3s ease;
+}
+
+nav .logo {
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  color: #fff;
+  /* Always white in nav */
+  text-decoration: none;
+}
+
+nav .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav .logo-img {
+  height: 50px;
+  width: auto;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  background: none;
+  border: none;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+/* --- Animations --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.9s ease forwards;
+}
+
+.slide-left {
+  opacity: 0;
+  animation: slideFromLeft 0.5s ease forwards;
+}
+
+.slide-right {
+  opacity: 0;
+  animation: slideFromRight 0.5s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* --- Common Layout --- */
+section {
+  padding: 100px 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+}
+
+/* Theme specific H2 colors if needed, but usually inherit or specific classes */
+/* In Rubio (Light), H2 is #dc2626. In Dark, H2 is White. */
+body.theme-light section h2 {
+  color: var(--accent-highlight);
+}
+
+section h3 {
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  color: var(--accent-highlight);
+  /* Default red highlight */
+}
+
+/* Prime override for blue H2/H3 */
+body.page-prime h2,
+body.page-prime h3,
+body.page-prime h4 {
+  color: var(--accent-prime);
+}
+
+section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+header p,
+.hero p {
+  font-size: 1.8rem;
+  /* Increased size */
+  opacity: 0.95;
+  margin-top: 20px;
+}
+
+/* --- Header / Hero --- */
+header,
+.hero {
+  min-height: 100vh;
+  /* Default to full height, adjust per page if needed */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url("../assets/fondo_grupo2r.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  color: #fff;
+  /* Headers always white text usually */
+}
+
+/* Hero Overlay */
+header::before,
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Default Dark Overlay - REMOVED per user request to fix haze */
+  background: transparent;
+  z-index: 0;
+  opacity: 0;
+}
+
+/* Specific Page Header Backgrounds handled in HTML style tag or specific classes if preferred, 
+   but for now we keep the structure generic */
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+header p,
+.hero p {
+  font-size: 1.45rem;
+  /* Reduced size (~20%) */
+  opacity: 0.95;
+  margin-top: 20px;
+}
+
+/* --- Components --- */
+
+/* Split (Text + Img) */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.split img {
+  width: 100%;
+  border-radius: 22px;
+  transition: transform 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.split img:hover {
+  transform: scale(1.03);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 18px 50px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
+}
+
+.btn-prime {
+  background: var(--accent-prime);
+  color: #fff;
+}
+
+.btn-rubio {
+  background: var(--accent-rubio);
+  color: #fff;
+}
+
+.btn-white {
+  background: #fff;
+  color: var(--accent-highlight);
+}
+
+.btn-back {
+  display: inline-block;
+  background: var(--accent-prime);
+  color: #fff;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 40px;
+}
+
+.btn-back:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+  background: var(--accent-prime-dark);
+}
+
+/* CTA Section */
+.cta {
+  background: transparent;
+  text-align: center;
+  padding: 120px 40px;
+}
+
+.cta h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  color: var(--text-color);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.btn-container .btn {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.cta-btn {
+  display: block;
+  width: 100%;
+  padding: 22px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
+}
+
+/* Division Cards (Hub) */
+.hub {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.division-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.division-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 70px 40px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.division-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.division-card:hover::before {
+  opacity: 1;
+}
+
+.division-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.division-card h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  margin-top: 0;
+  color: var(--text-color);
+}
+
+.division-card span {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  letter-spacing: 1px;
+}
+
+.division-card.prime:hover {
+  border-color: rgba(37, 99, 235, 0.5);
+  box-shadow: 0 25px 50px rgba(37, 99, 235, 0.2);
+}
+
+.division-card.rubio:hover {
+  border-color: rgba(220, 38, 38, 0.5);
+  box-shadow: 0 25px 50px rgba(220, 38, 38, 0.2);
+}
+
+/* Grid for Services (Prime) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  /* Default blueish for Prime */
+  border-radius: 16px;
+  padding: 40px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+}
+
+.card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--accent-prime);
+}
+
+/* --- Features / Lists --- */
+.valores-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.valores-list li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 8px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.valores-list li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: var(--accent-highlight);
+  font-size: 0.9rem;
+}
+
+body.theme-light .valores-list li::before {
+  color: var(--accent-rubio);
+}
+
+body.theme-light .valores-list strong {
+  color: var(--accent-rubio);
+}
+
+.lider-highlight {
+  display: inline-block;
+  background: linear-gradient(135deg, #dc2626, #7f1d1d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  margin-left: 10px;
+}
+
+/* LIDER Highlights */
+.highlight-letter {
+  color: #dc2626 !important;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+/* LIDER Highlight Letters */
+.highlight-letter {
+  color: #dc2626 !important;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+/* --- Carousel (Index) --- */
+.colaboradores-section {
+  padding: 100px 0 !important;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0b0f1a 0%, #1a1f2e 50%, #0b0f1a 100%);
+  position: relative;
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 40px;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 280px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.carousel-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-item:hover img {
+  opacity: 1;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(37, 99, 235, 0.9);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-btn.prev {
+  left: 15px;
+}
+
+.carousel-btn.next {
+  right: 15px;
+}
+
+/* --- Footer --- */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 60px 40px;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  color: #fff;
+}
+
+/* --- Responsive --- */
+@media(max-width: 900px) {
+  nav {
+    padding: 20px 20px;
+    min-height: 80px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px !important;
+    transform: translateY(-200%);
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Force text over image in mobile */
+  .split>div:first-child {
+    order: 1;
+  }
+
+  .split>img {
+    order: 2;
+  }
+
+  .split>div:last-child {
+    order: 1;
+  }
+
+  .hub {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 60px 20px;
+  }
+
+  section h2 {
+    font-size: 2.2rem;
+  }
+
+  .cta h2 {
+    font-size: 2.5rem;
+  }
+
+  .carousel-wrapper {
+    padding: 0 60px;
+  }
+
+  .carousel-item {
+    width: 220px;
+    height: 140px;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media(max-width: 500px) {
+  .cta h2 {
+    font-size: 2.2rem;
+  }
+
+  .carousel-item {
+    width: 200px;
+    height: 130px;
+  }
+}

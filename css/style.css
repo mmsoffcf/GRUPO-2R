@@ -261,6 +261,13 @@ section p {
   line-height: 1.8;
   opacity: 0.9;
   margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Keep contact and footer sections centered */
+.cta p,
+footer p {
+  text-align: center;
 }
 
 header p,
@@ -906,17 +913,15 @@ footer {
     gap: 40px;
   }
 
-  /* Force text over image in mobile */
-  .split>div:first-child {
+  /* Mobile layout: ensure text-image-text-image pattern */
+  /* Default: text first, then image/gallery */
+  .split>div:not(.gallery-container) {
     order: 1;
   }
 
-  .split>img {
+  .split>img,
+  .split>.gallery-container {
     order: 2;
-  }
-
-  .split>div:last-child {
-    order: 1;
   }
 
   .hub {
@@ -995,8 +1000,33 @@ footer {
     line-height: 1.6;
   }
 
+  /* Fix contact section centering and padding on mobile */
+  .cta {
+    padding: 60px 20px !important;
+  }
+
+  .cta>div {
+    padding: 40px 20px !important;
+    max-width: 100% !important;
+  }
+
+  .cta h2 {
+    font-size: 2rem !important;
+  }
+
+  .cta p {
+    font-size: 1.1rem !important;
+  }
+
+  .cta a {
+    padding: 18px 30px !important;
+    font-size: 1rem !important;
+    width: 90%;
+    max-width: 300px;
+  }
 
 }
+
 
 @media(max-width: 500px) {
   .cta h2 {
